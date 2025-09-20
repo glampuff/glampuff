@@ -7,31 +7,6 @@ body {
   text-align: center;
 }
 
-/* SLIDER CONTINUU */
-.slider {
-  width: 100%;
-  height: 300px;
-  overflow: hidden;
-  position: relative;
-}
-
-.slides {
-  display: flex;
-  width: calc(6 * 100% / 3); /* 6 imagini = 2 seturi x 3 imagini */
-  animation: scroll 20s linear infinite;
-}
-
-.slides img {
-  width: calc(100% / 3); /* fiecare imagine ocupă 1/3 din viewport */
-  height: 300px;
-  object-fit: cover;
-}
-
-@keyframes scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
-}
-
 /* HERO */
 .hero {
   min-height: 80vh;
@@ -155,12 +130,6 @@ footer {
 @media (max-width: 768px) {
   .card {
     width: 90%;
-  }
-  .slides img {
-    height: 200px;
-  }
-  .slider {
-    height: 200px;
   }
 }
 
