@@ -20,20 +20,18 @@ body {
 }
 
 .logo {
-  width: 350px;   
-  max-width: 80%; 
+  width: 400px;   
+  max-width: 90%; 
   height: auto;   
   margin-bottom: 15px; 
 }
 
-/* Titlu hero */
 .hero h1 {
   font-size: 2.2rem;
   margin-bottom: 10px;
   color: #fff;
 }
 
-/* Buton WhatsApp */
 .btn {
   display: inline-block;
   background: #ff1493;
@@ -50,14 +48,13 @@ body {
   background: #ff69b4;
 }
 
-/* Buton Instagram mai mare */
 .instagram-btn {
   font-size: 1.2rem;
   padding: 16px 32px;
   margin-top: 30px;
 }
 
-/* Indicator de scroll animat */
+/* Scroll indicator */
 .scroll-indicator {
   position: absolute;
   bottom: 20px;
@@ -79,21 +76,16 @@ body {
   animation: fadeInUp 1s forwards;
 }
 
-.hero .animate:nth-child(1) { animation-delay: 0.2s; } /* logo */
-.hero .animate:nth-child(2) { animation-delay: 0.5s; } /* titlu */
-.hero .animate:nth-child(3) { animation-delay: 0.8s; } /* buton */
+.hero .animate:nth-child(1) { animation-delay: 0.2s; }
+.hero .animate:nth-child(2) { animation-delay: 0.5s; }
+.hero .animate:nth-child(3) { animation-delay: 0.8s; }
 
 @keyframes fadeInUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  to { opacity: 1; transform: translateY(0); }
 }
 
 /* Font Allrounder pentru titluri */
-.allrounder {
-  font-family: 'Allrounder Monument', serif;
-}
+.allrounder { font-family: 'Allrounder Monument', serif; }
 
 /* PRODUSE */
 .produse {
@@ -171,19 +163,10 @@ footer {
 
 /* Responsive */
 @media (max-width: 768px) {
-  .card {
-    width: 90%;
-  }
-  .logo {
-    width: 250px;
-    margin-bottom: 10px;
-  }
-  .hero h1 {
-    font-size: 1.8rem;
-  }
-  .btn {
-    padding: 12px 24px;
-  }
+  .logo { width: 250px; margin-bottom: 10px; }
+  .hero h1 { font-size: 1.8rem; }
+  .btn { padding: 12px 24px; }
+  .card { width: 90%; }
 }
 
 /* Scroll Animations pentru restul site-ului */
