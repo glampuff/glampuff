@@ -179,7 +179,7 @@ footer {
 @media (max-width: 768px) {
   .logo {
     width: 400px; /* mai mare pe telefon */
-    margin-top: 20px; /* îl poți ridica sau coborî */
+    margin-top: 70px; /* îl poți ridica sau coborî */
   }
   .hero h1 {
     font-size: 2rem;
