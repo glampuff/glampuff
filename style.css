@@ -1,10 +1,11 @@
-/* Fonturi și stiluri de bază */
+/* FONTURI & BAZE */
 body {
   margin: 0;
   font-family: Arial, sans-serif;
   background-color: #000;
   color: #fff;
   text-align: center;
+  line-height: 1.5;
 }
 
 /* HERO */
@@ -17,43 +18,41 @@ body {
   position: relative;
   background: radial-gradient(circle at top, #ff1493 0%, #000 80%);
   padding: 20px;
+  overflow: hidden;
 }
 
 .logo {
-  width: 400px;   /* desktop rămâne la dimensiunea actuală */
+  width: 400px;
   max-width: 90%;
   height: auto;
-  margin-bottom: 20px;
+  margin-bottom: 15px;
+  transition: transform 0.6s ease, opacity 0.6s ease;
 }
-
-/* Mobil */
-@media (max-width: 768px) {
-  .logo {
-    width: 450px !important; /* logo mai mare pe mobil */
-  }
-}
-
 
 .hero h1 {
-  font-size: 2.2rem;
+  font-size: 2.4rem;
   margin-bottom: 10px;
   color: #fff;
+  text-shadow: 0 0 10px #ff69b4;
+  transition: transform 0.6s ease, opacity 0.6s ease;
 }
 
 .btn {
   display: inline-block;
-  background: #ff1493;
+  background: linear-gradient(45deg, #ff1493, #ff69b4);
   color: #fff;
   padding: 14px 28px;
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
-  transition: 0.3s;
+  transition: all 0.3s ease;
   margin-top: 15px;
+  box-shadow: 0 5px 15px rgba(255, 20, 147, 0.4);
 }
 
 .btn:hover {
-  background: #ff69b4;
+  transform: scale(1.05);
+  box-shadow: 0 10px 25px rgba(255, 20, 147, 0.6);
 }
 
 .instagram-btn {
@@ -77,24 +76,6 @@ body {
   60% { transform: translateY(5px); }
 }
 
-/* Animații hero */
-.hero .animate {
-  opacity: 0;
-  transform: translateY(30px);
-  animation: fadeInUp 1s forwards;
-}
-
-.hero .animate:nth-child(1) { animation-delay: 0.2s; }
-.hero .animate:nth-child(2) { animation-delay: 0.5s; }
-.hero .animate:nth-child(3) { animation-delay: 0.8s; }
-
-@keyframes fadeInUp {
-  to { opacity: 1; transform: translateY(0); }
-}
-
-/* Font Allrounder pentru titluri */
-.allrounder { font-family: 'Allrounder Monument', serif; }
-
 /* PRODUSE */
 .produse {
   padding: 60px 20px;
@@ -104,7 +85,9 @@ body {
 .produse h2 {
   margin-bottom: 40px;
   font-size: 2rem;
-  color: #ff69b4;
+  background: linear-gradient(90deg, #ff1493, #ff69b4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .grid {
@@ -115,21 +98,45 @@ body {
 }
 
 .card {
+  position: relative;
   background: #222;
   border-radius: 15px;
   padding: 10px;
   width: 280px;
-  transition: 0.3s;
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .card img {
   width: 100%;
   border-radius: 10px;
+  display: block;
 }
 
 .card:hover {
   transform: scale(1.05);
-  box-shadow: 0 10px 20px rgba(255, 20, 147, 0.4);
+  box-shadow: 0 10px 25px rgba(255, 20, 147, 0.4);
+}
+
+/* Overlay text pe hover */
+.overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 15px 0;
+  background: rgba(255, 20, 147, 0.8);
+  color: #fff;
+  font-weight: 600;
+  font-size: 1.1rem;
+  opacity: 0;
+  transform: translateY(100%);
+  transition: all 0.3s ease;
+}
+
+.card:hover .overlay {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 /* DESPRE */
@@ -169,15 +176,7 @@ footer {
   color: #aaa;
 }
 
-/* Responsive */
-@media (max-width: 768px) {
-  .logo { width: 250px; margin-bottom: 10px; }
-  .hero h1 { font-size: 1.8rem; }
-  .btn { padding: 12px 24px; }
-  .card { width: 90%; }
-}
-
-/* Scroll Animations pentru restul site-ului */
+/* ANIMAȚII & SCROLL */
 .animate {
   opacity: 0;
   transform: translateY(50px);
@@ -187,4 +186,12 @@ footer {
 .animate.show {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+  .logo { width: 250px; margin-bottom: 10px; }
+  .hero h1 { font-size: 1.8rem; }
+  .btn { padding: 12px 24px; }
+  .card { width: 90%; }
 }
