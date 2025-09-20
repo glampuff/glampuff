@@ -4,9 +4,10 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>GlamPuff</title>
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="style.css">
   <style>
-    /* Scroll smooth */
     html {
       scroll-behavior: smooth;
     }
@@ -18,32 +19,28 @@
   <section class="hero">
     <img src="https://i.ibb.co/7xrxqp70/Photoroom-20250918-90312-a-m.png" alt="GlamPuff Logo" class="logo">
     <h1>Facem vibe din vape</h1>
-    <a href="https://wa.me/40749854609" class="btn" target="_blank">Comandă pe WhatsApp</a>
-</section>
+    <a href="https://wa.me/407XXXXXXXX" class="btn" target="_blank">Comandă pe WhatsApp</a>
+  </section>
 
- <!-- PRODUSE -->
-<section id="produse" class="produse">
-  <h2>Produsele noastre</h2>
-  <div class="grid">
-    <div class="card">
-      <img src="https://i.ibb.co/Sw5JxRq3/Photoroom-20250920-111601-a-m.png" alt="Produs 1">
+  <!-- PRODUSE -->
+  <section id="produse" class="produse animate">
+    <h2>Produsele noastre</h2>
+    <div class="grid">
+      <div class="card">
+        <img src="https://i.ibb.co/Sw5JxRq3/Photoroom-20250920-111601-a-m.png" alt="Produs 1">
+      </div>
+      <div class="card">
+        <img src="https://i.ibb.co/F4mR3JG4/Photoroom-20250919-13204-a-m.png" alt="Produs 2">
+      </div>
+      <div class="card">
+        <img src="https://i.ibb.co/FLR0JXC7/IMG-4611.jpg" alt="Produs 3">
+      </div>
     </div>
-    <div class="card">
-      <img src="https://i.ibb.co/F4mR3JG4/Photoroom-20250919-13204-a-m.png" alt="Produs 2">
-    </div>
-    <div class="card">
-      <img src="https://i.ibb.co/FLR0JXC7/IMG-4611.jpg" alt="Produs 3">
-    </div>
-  </div>
-
-  <!-- Buton Instagram -->
-  <a href="https://instagram.com/glampuff45" class="btn" target="_blank" style="margin-top: 45px;">Vezi mai multe pe Instagram</a>
-</section>
-
-
+    <a href="https://instagram.com/glampuff45" class="btn instagram-btn" target="_blank">Vezi mai multe pe Instagram</a>
+  </section>
 
   <!-- DESPRE -->
-  <section class="despre">
+  <section class="despre animate">
     <h2>Despre GlamPuff</h2>
     <p>
       GlamPuff aduce stil și personalitate în lumea vapingului. 
@@ -52,12 +49,12 @@
   </section>
 
   <!-- CONTACT -->
-  <section class="contact">
+  <section class="contact animate">
     <h2>Contact</h2>
     <p>Hai să discutăm despre modelul tău personalizat!</p>
     <div class="contact-links">
-      <a href="https://wa.me/407XXXXXXXX" class="btn">WhatsApp</a>
-      <a href="https://instagram.com/glampuff" class="btn">Instagram</a>
+      <a href="https://wa.me/407XXXXXXXX" class="btn" target="_blank">WhatsApp</a>
+      <a href="https://instagram.com/glampuff45" class="btn" target="_blank">Instagram</a>
       <a href="mailto:contact@glampuff.ro" class="btn">Email</a>
     </div>
   </section>
@@ -67,5 +64,19 @@
     <p>© 2025 GlamPuff - Toate drepturile rezervate</p>
   </footer>
 
+  <!-- Scroll Animation JS -->
+  <script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if(entry.isIntersecting){
+          entry.target.classList.add('show');
+        }
+      });
+    }, { threshold: 0.2 });
+
+    document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+  </script>
+
 </body>
 </html>
+
