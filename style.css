@@ -1,0 +1,140 @@
+/* Fonturi și stiluri de bază */
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background-color: #000;
+  color: #fff;
+  text-align: center;
+}
+
+/* HERO */
+.hero {
+  height: 100vh;
+  background: radial-gradient(circle at center, #ff1493 0%, #000 70%);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+/* Logo cu fade pe margini */
+.logo {
+  max-width: 300px;
+  margin-bottom: 20px;
+  border-radius: 20px;
+  -webkit-mask-image: radial-gradient(circle, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
+  -webkit-mask-size: cover;
+  mask-image: radial-gradient(circle, rgba(0,0,0,1) 80%, rgba(0,0,0,0) 100%);
+  mask-repeat: no-repeat;
+  mask-position: center;
+  mask-size: cover;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #fff;
+}
+
+.btn {
+  display: inline-block;
+  background: #ff1493;
+  color: #fff;
+  padding: 12px 24px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #ff69b4;
+}
+
+/* PRODUSE */
+.produse {
+  padding: 60px 20px;
+  background: #111;
+}
+
+.produse h2 {
+  margin-bottom: 40px;
+  font-size: 2rem;
+  color: #ff69b4;
+}
+
+.grid {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background: #222;
+  border-radius: 15px;
+  padding: 10px;
+  width: 280px;
+  transition: 0.3s;
+}
+
+.card img {
+  width: 100%;
+  border-radius: 10px;
+}
+
+.card p {
+  margin-top: 10px;
+}
+
+.card:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 20px rgba(255, 20, 147, 0.4);
+}
+
+/* DESPRE */
+.despre {
+  padding: 60px 20px;
+  background: #000;
+}
+
+.despre h2 {
+  color: #ff69b4;
+  margin-bottom: 20px;
+}
+
+/* CONTACT */
+.contact {
+  padding: 60px 20px;
+  background: #111;
+}
+
+.contact h2 {
+  color: #ff69b4;
+  margin-bottom: 20px;
+}
+
+.contact-links {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+/* FOOTER */
+footer {
+  padding: 20px;
+  background: #000;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .card {
+    width: 90%;
+  }
+}
