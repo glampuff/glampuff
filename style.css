@@ -20,11 +20,19 @@ body {
 }
 
 .logo {
-  width: 400px;   
-  max-width: 90%; 
-  height: auto;   
-  margin-bottom: 15px; 
+  width: 400px;   /* desktop rămâne la dimensiunea actuală */
+  max-width: 90%;
+  height: auto;
+  margin-bottom: 20px;
 }
+
+/* Mobil */
+@media (max-width: 768px) {
+  .logo {
+    width: 450px !important; /* logo mai mare pe mobil */
+  }
+}
+
 
 .hero h1 {
   font-size: 2.2rem;
