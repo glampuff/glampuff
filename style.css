@@ -178,7 +178,8 @@ footer {
 /* RESPONSIVE */
 @media (max-width: 768px) {
   .logo {
-    width: 300px;
+    width: 400px; /* mai mare pe telefon */
+    margin-top: 20px; /* îl poți ridica sau coborî */
   }
   .hero h1 {
     font-size: 2rem;
