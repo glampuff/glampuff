@@ -12,7 +12,7 @@ body {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  justify-content: flex-start; /* Logo sus */
+  justify-content: flex-start;
   align-items: center;
   background: radial-gradient(circle at top, #ff1493 0%, #000 80%);
   padding-top: 20px;
@@ -24,35 +24,47 @@ body {
   width: 500px;
   max-width: 90%;
   height: auto;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 
-/* Text + buton pe mijloc */
+/* Text + buton mai sus */
 .hero-center {
-  flex: 1; /* împinge conținutul la mijloc */
+  margin-top: 20px; /* mută textul și butonul mai aproape de logo */
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
+  gap: 20px;
 }
 
 .hero-center h1 {
   font-size: 2.5rem;
-  margin-bottom: 20px;
   text-shadow: 0 0 10px #ff69b4;
 }
 
-/* Buton mare WhatsApp */
+/* Stil general pentru toate butoanele */
+.btn {
+  display: inline-block;
+  background: #ff1493;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+}
+
+.btn:hover {
+  background: #ff69b4;
+  transform: scale(1.05);
+}
+
+/* WhatsApp mare din HERO (moștenește .btn) */
 .big-btn {
-  padding: 18px 36px;
-  font-size: 1.4rem;
+  padding: 20px 40px;
+  font-size: 1.5rem;
   border-radius: 40px;
   background: linear-gradient(45deg, #25D366, #128C7E);
   box-shadow: 0 8px 25px rgba(37, 211, 102, 0.4);
-  color: #fff;
-  text-decoration: none;
-  font-weight: 600;
-  transition: all 0.3s ease;
 }
 
 .big-btn:hover {
@@ -60,13 +72,12 @@ body {
   box-shadow: 0 12px 30px rgba(37, 211, 102, 0.6);
 }
 
-/* Scroll indicator */
+/* Scroll indicator sub buton */
 .scroll-indicator {
-  position: absolute;
-  bottom: 20px;
   font-size: 2rem;
   color: #fff;
   animation: bounce 2s infinite;
+  margin-top: 20px; /* mai aproape de buton */
 }
 
 @keyframes bounce {
@@ -152,14 +163,14 @@ footer {
 /* Responsive */
 @media (max-width: 768px) {
   .logo {
-    width: 350px; /* mai mare pe telefon */
-    margin-bottom: 30px;
+    width: 350px;
+    margin-bottom: 10px;
   }
   .hero-center h1 {
     font-size: 2rem;
   }
   .big-btn {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     padding: 16px 32px;
   }
   .card { width: 90%; }
