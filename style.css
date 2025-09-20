@@ -9,18 +9,67 @@ body {
 
 /* HERO */
 .hero {
-  min-height: 90vh; /* mai mare pentru impact */
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   position: relative;
   background: radial-gradient(circle at top, #ff1493 0%, #000 80%);
+  padding: 20px;
 }
 
 .logo {
-  max-width: 650px; /* logo mai mare */
-  margin-bottom: 30px;
+  width: 350px;   
+  max-width: 80%; 
+  height: auto;   
+  margin-bottom: 15px; 
+}
+
+/* Titlu hero */
+.hero h1 {
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+/* Buton WhatsApp */
+.btn {
+  display: inline-block;
+  background: #ff1493;
+  color: #fff;
+  padding: 14px 28px;
+  border-radius: 30px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: 0.3s;
+  margin-top: 15px;
+}
+
+.btn:hover {
+  background: #ff69b4;
+}
+
+/* Buton Instagram mai mare */
+.instagram-btn {
+  font-size: 1.2rem;
+  padding: 16px 32px;
+  margin-top: 30px;
+}
+
+/* Indicator de scroll animat */
+.scroll-indicator {
+  position: absolute;
+  bottom: 20px;
+  font-size: 2rem;
+  color: #fff;
+  animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+  40% { transform: translateY(10px); }
+  60% { transform: translateY(5px); }
 }
 
 /* Animații hero */
@@ -41,48 +90,9 @@ body {
   }
 }
 
-/* Scroll indicator */
-.scroll-indicator {
-  position: absolute;
-  bottom: 20px;
-  font-size: 2rem;
-  color: #fff;
-  animation: bounce 2s infinite;
-}
-
-@keyframes bounce {
-  0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
-  40% { transform: translateY(10px); }
-  60% { transform: translateY(5px); }
-}
-
-/* Titluri Allrounder */
+/* Font Allrounder pentru titluri */
 .allrounder {
   font-family: 'Allrounder Monument', serif;
-}
-
-/* BTN */
-.btn {
-  display: inline-block;
-  background: #ff1493;
-  color: #fff;
-  padding: 14px 28px;
-  border-radius: 30px;
-  text-decoration: none;
-  font-weight: 600;
-  transition: 0.3s;
-  margin-top: 20px;
-}
-
-.btn:hover {
-  background: #ff69b4;
-}
-
-/* Buton Instagram mai mare */
-.instagram-btn {
-  font-size: 1.2rem;
-  padding: 16px 32px;
-  margin-top: 30px;
 }
 
 /* PRODUSE */
@@ -165,7 +175,14 @@ footer {
     width: 90%;
   }
   .logo {
-    max-width: 250px;
+    width: 250px;
+    margin-bottom: 10px;
+  }
+  .hero h1 {
+    font-size: 1.8rem;
+  }
+  .btn {
+    padding: 12px 24px;
   }
 }
 
@@ -180,4 +197,3 @@ footer {
   opacity: 1;
   transform: translateY(0);
 }
-
