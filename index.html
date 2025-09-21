@@ -9,7 +9,6 @@
   <style>
     html { scroll-behavior: smooth; }
 
-    /* Font Allrounder doar pentru titluri */
     @font-face {
       font-family: 'Allrounder Monument';
       src: url('AllrounderMonumentTest-Medium.woff2') format('woff2'),
@@ -24,58 +23,41 @@
 
   <!-- NAVBAR -->
   <nav class="navbar">
-    <div class="nav-container">
-      <a href="#" class="nav-logo allrounder">GlamPuff</a>
-      <ul class="nav-links">
-        <li><a href="#tarife">Tarife</a></li>
-        <li><a href="#produse">Produse</a></li>
-        <li><a href="#despre">Despre</a></li>
-        <li><a href="#review">Review</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </div>
+    <a href="#" class="nav-logo allrounder">GlamPuff</a>
+    <div class="hamburger"><i class="fas fa-bars"></i></div>
+    <ul class="nav-links">
+      <li><a href="#tarife">Tarife</a></li>
+      <li><a href="#produse">Produse</a></li>
+      <li><a href="#despre">Despre</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <img src="https://i.ibb.co/7xrxqp70/Photoroom-20250918-90312-a-m.png" alt="GlamPuff Logo" class="logo animate">
+    <img src="https://i.ibb.co/7xrxqp70/Photoroom-20250918-90312-a-m.png" alt="GlamPuff Logo" class="logo animate" loading="lazy">
     <h1 class="allrounder animate">Facem vibe din vape</h1>
-    <a href="https://wa.me/40749854609" class="btn animate" target="_blank"><i class="fab fa-whatsapp"></i> Comandă pe WhatsApp</a>
-    <p class="scroll-text animate">Derulează în jos pentru a descoperi produsele</p>
+    <a href="https://wa.me/40749854609" class="btn animate" target="_blank">Comandă pe WhatsApp</a>
     <div class="scroll-indicator animate"><span>&#x25BC;</span></div>
   </section>
 
   <!-- TARIFE -->
   <section id="tarife" class="tarife animate">
     <h2 class="allrounder">Tarife</h2>
-    <img src="https://i.ibb.co/h1XhLNGs/Black-and-Blue-Gradient-Creative-Price-List-Instagram-Story.png" alt="Lista tarife GlamPuff">
+    <img src="https://i.ibb.co/h1XhLNGs/Black-and-Blue-Gradient-Creative-Price-List-Instagram-Story.png" alt="Lista tarife GlamPuff" loading="lazy">
   </section>
 
   <!-- PRODUSE -->
   <section id="produse" class="produse animate">
     <h2 class="allrounder">Produsele noastre</h2>
     <div class="slider">
-      <div class="slides">
-        <input type="radio" name="radio-btn" id="slide1" checked>
-        <input type="radio" name="radio-btn" id="slide2">
-        <input type="radio" name="radio-btn" id="slide3">
-
-        <div class="slide first">
-          <img src="https://i.ibb.co/Sw5JxRq3/Photoroom-20250920-111601-a-m.png" alt="Produs 1">
-        </div>
-        <div class="slide">
-          <img src="https://i.ibb.co/F4mR3JG4/Photoroom-20250919-13204-a-m.png" alt="Produs 2">
-        </div>
-        <div class="slide">
-          <img src="https://i.ibb.co/FLR0JXC7/IMG-4611.jpg" alt="Produs 3">
-        </div>
+      <div class="slides-container">
+        <div class="slide"><img src="https://i.ibb.co/Sw5JxRq3/Photoroom-20250920-111601-a-m.png" alt="Produs 1" loading="lazy"></div>
+        <div class="slide"><img src="https://i.ibb.co/F4mR3JG4/Photoroom-20250919-13204-a-m.png" alt="Produs 2" loading="lazy"></div>
+        <div class="slide"><img src="https://i.ibb.co/FLR0JXC7/IMG-4611.jpg" alt="Produs 3" loading="lazy"></div>
       </div>
-
-      <div class="navigation-manual">
-        <label for="slide1" class="manual-btn"></label>
-        <label for="slide2" class="manual-btn"></label>
-        <label for="slide3" class="manual-btn"></label>
-      </div>
+      <button class="prev"><i class="fas fa-chevron-left"></i></button>
+      <button class="next"><i class="fas fa-chevron-right"></i></button>
     </div>
     <a href="https://instagram.com/glampuff45" class="btn instagram-btn" target="_blank">Vezi mai multe pe Instagram</a>
   </section>
@@ -90,42 +72,46 @@
   </section>
 
   <!-- REVIEW -->
-  <section id="review" class="review animate">
-    <h2 class="allrounder">Lasă un review ✨</h2>
+  <section class="review animate">
+    <h2 class="allrounder">Lasă un review</h2>
     <form class="review-form">
       <input type="text" placeholder="Numele tău" required>
-      
-      <div class="star-rating">
-        <input type="radio" id="star5" name="rating" value="5"><label for="star5" title="5 stele">⭐</label>
-        <input type="radio" id="star4" name="rating" value="4"><label for="star4" title="4 stele">⭐</label>
-        <input type="radio" id="star3" name="rating" value="3"><label for="star3" title="3 stele">⭐</label>
-        <input type="radio" id="star2" name="rating" value="2"><label for="star2" title="2 stele">⭐</label>
-        <input type="radio" id="star1" name="rating" value="1"><label for="star1" title="1 stea">⭐</label>
-      </div>
-
       <textarea placeholder="Scrie aici review-ul tău..." required></textarea>
       <button type="submit" class="btn">Trimite Review</button>
     </form>
-
     <div class="reviews-list">
-      <p><strong>Ana ⭐⭐⭐⭐⭐:</strong> Super produse! 💖</p>
-      <p><strong>Andrei ⭐⭐⭐⭐:</strong> Recomand cu drag!</p>
+      <p><strong>Ana:</strong> Super produse! 💖</p>
+      <p><strong>Andrei:</strong> Vape-ul meu arată genial, recomand!</p>
     </div>
   </section>
 
   <!-- CONTACT -->
   <section id="contact" class="contact animate">
     <h2 class="allrounder">Contact</h2>
+    <p>Hai să discutăm despre modelul tău personalizat!</p>
     <div class="contact-links">
-      <a href="https://wa.me/40749854609" class="btn"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-      <a href="https://instagram.com/glampuff45" class="btn"><i class="fab fa-instagram"></i> Instagram</a>
+      <a href="https://wa.me/40749854609" class="btn" target="_blank">WhatsApp</a>
+      <a href="https://instagram.com/glampuff45" class="btn" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@glampuff.shop" class="btn" target="_blank">TikTok</a>
     </div>
   </section>
 
   <!-- FOOTER -->
   <footer>
-    <p>&copy; 2025 GlamPuff. Toate drepturile rezervate.</p>
+    <div class="social-footer">
+      <a href="https://instagram.com/glampuff45" target="_blank"><i class="fab fa-instagram"></i></a>
+      <a href="https://www.tiktok.com/@glampuff.shop" target="_blank"><i class="fab fa-tiktok"></i></a>
+      <a href="https://wa.me/40749854609" target="_blank"><i class="fab fa-whatsapp"></i></a>
+    </div>
+    <p>© 2025 GlamPuff - Toate drepturile rezervate</p>
   </footer>
 
+  <!-- WhatsApp Floating Button -->
+  <a href="https://wa.me/40749854609" class="whatsapp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  <!-- JS -->
+  <script src="script.js"></script>
 </body>
 </html>
