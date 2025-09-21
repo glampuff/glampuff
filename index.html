@@ -36,6 +36,13 @@
     </div>
   </section>
 
+  <!-- TARIFE -->
+  <section class="tarife animate">
+    <h2 class="allrounder">Tarife</h2>
+    <img src="https://i.ibb.co/h1XhLNGs/Black-and-Blue-Gradient-Creative-Price-List-Instagram-Story.png" 
+         alt="Lista de prețuri GlamPuff" class="tarife-img">
+  </section>
+
   <!-- PRODUSE -->
   <section id="produse" class="produse animate">
     <h2 class="allrounder">Produsele noastre</h2>
@@ -62,6 +69,17 @@
     </p>
   </section>
 
+  <!-- REVIEW-URI -->
+  <section class="reviews animate">
+    <h2 class="allrounder">Lasă un review</h2>
+    <form id="reviewForm">
+      <input type="text" id="name" placeholder="Numele tău" required>
+      <textarea id="message" placeholder="Scrie review-ul aici..." required></textarea>
+      <button type="submit" class="btn">Trimite Review</button>
+    </form>
+    <div id="reviewsList" class="reviews-list"></div>
+  </section>
+
   <!-- CONTACT -->
   <section class="contact animate">
     <h2 class="allrounder">Contact</h2>
@@ -78,7 +96,7 @@
     <p>© 2025 GlamPuff - Toate drepturile rezervate</p>
   </footer>
 
-  <!-- Scroll Animation JS -->
+  <!-- Scroll Animation + Reviews JS -->
   <script>
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
@@ -89,6 +107,35 @@
     }, { threshold: 0.2 });
 
     document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+
+    // Review System (Local Storage)
+    const form = document.getElementById("reviewForm");
+    const reviewsList = document.getElementById("reviewsList");
+
+    function loadReviews() {
+      const reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
+      reviewsList.innerHTML = reviews.map(r => `
+        <div class="review">
+          <h4>${r.name}</h4>
+          <p>${r.message}</p>
+        </div>
+      `).join("");
+    }
+
+    form.addEventListener("submit", (e) => {
+      e.preventDefault();
+      const name = document.getElementById("name").value;
+      const message = document.getElementById("message").value;
+
+      const reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
+      reviews.push({ name, message });
+      localStorage.setItem("reviews", JSON.stringify(reviews));
+
+      form.reset();
+      loadReviews();
+    });
+
+    loadReviews();
   </script>
 
 </body>
