@@ -22,18 +22,16 @@
 <body>
 
   <!-- NAVBAR -->
-<nav class="navbar">
-  <a href="#" class="nav-logo allrounder">GlamPuff</a>
-  <div class="hamburger"><i class="fas fa-bars"></i></div>
-  <ul class="nav-links">
-    <li><a href="#tarife">Tarife</a></li>
-    <li><a href="#produse">Produse</a></li>
-    <li><a href="#despre">Despre</a></li>
-    <li><a href="#contact">Contact</a></li>
-  </ul>
-</nav>
-
-
+  <nav class="navbar">
+    <div class="hamburger"><i class="fas fa-bars"></i></div>
+    <a href="#" class="nav-logo allrounder">GlamPuff</a>
+    <ul class="nav-links">
+      <li><a href="#tarife">Tarife</a></li>
+      <li><a href="#produse">Produse</a></li>
+      <li><a href="#despre">Despre</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
 
   <!-- HERO -->
   <section class="hero">
@@ -78,13 +76,23 @@
     <h2 class="allrounder">Lasă un review</h2>
     <form class="review-form">
       <input type="text" placeholder="Numele tău" required>
-      <textarea placeholder="Scrie aici review-ul tău..." required></textarea>
+      <textarea placeholder="Scrie review-ul tău..." required></textarea>
+      <div class="stars">
+        <span data-star="1">&#9734;</span>
+        <span data-star="2">&#9734;</span>
+        <span data-star="3">&#9734;</span>
+        <span data-star="4">&#9734;</span>
+        <span data-star="5">&#9734;</span>
+      </div>
       <button type="submit" class="btn">Trimite Review</button>
     </form>
-    <div class="reviews-list">
-      <p><strong>Ana:</strong> Super produse! 💖</p>
-      <p><strong>Andrei:</strong> Vape-ul meu arată genial, recomand!</p>
-    </div>
+    <div class="reviews-list"></div>
+  </section>
+
+  <!-- INSTAGRAM -->
+  <section id="instagram" class="instagram animate">
+    <h2 class="allrounder">Ultimele postări</h2>
+    <iframe src="https://snapwidget.com/embed/123456" class="insta-widget" frameborder="0" scrolling="no" allowtransparency="true"></iframe>
   </section>
 
   <!-- CONTACT -->
@@ -112,6 +120,9 @@
   <a href="https://wa.me/40749854609" class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
   </a>
+
+  <!-- Scroll to top -->
+  <button id="scrollTopBtn" title="Mergi sus">&#8679;</button>
 
   <script src="script.js" defer></script>
 </body>
