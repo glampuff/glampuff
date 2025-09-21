@@ -8,283 +8,256 @@
   <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* Font personalizat */
     @font-face {
       font-family: 'Allrounder';
       src: url('AllrounderMonumentTest-Medium.otf') format('opentype');
     }
 
-    /* Reset */
     * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
     body {background:#000;color:#fff;overflow-x:hidden;}
     a {text-decoration:none;color:inherit;}
 
-    /* Header */
-    header {position:fixed;top:0;left:0;width:100%;padding:15px;display:flex;justify-content:space-between;align-items:center;z-index:100;background:rgba(0,0,0,0.7);}
+    header {
+      position:fixed; top:0; left:0; width:100%; padding:15px 30px;
+      display:flex; justify-content:space-between; align-items:center;
+      z-index:100; background:rgba(0,0,0,0.85); backdrop-filter: blur(5px);
+    }
     .menu-toggle {cursor:pointer;display:flex;flex-direction:column;gap:5px;}
     .menu-toggle span {width:25px;height:3px;background:#ff4da6;border-radius:2px;transition:.3s;}
     nav {position:fixed;top:0;right:-100%;width:70%;height:100%;background:#111;transition:.4s;padding:60px 20px;display:flex;flex-direction:column;gap:20px;}
     nav.active {right:0;}
-    nav a {font-size:18px;color:#ff4da6;}
+    nav a {font-size:18px;color:#ff4da6;transition:0.3s;}
+    nav a:hover {color:#ff66b2;}
 
-    /* Hero optimizat mobil */
     .hero {
-      min-height:80vh;
-      padding:40px 20px 50px;
-      display:flex;
-      flex-direction:column;
-      justify-content:flex-start;
-      align-items:center;
-      text-align:center;
+      min-height:80vh; padding:40px 20px 50px;
+      display:flex; flex-direction:column; justify-content:flex-start; align-items:center;
+      text-align:center; background: linear-gradient(135deg, #000, #1a001a);
+      opacity:0; transform: translateY(20px); transition: all 1s ease;
     }
-    .hero img {
-      max-width:350px;
-      margin-bottom:20px;
-    }
-    .hero h1 {
-      font-family:'Allrounder',sans-serif;
-      font-size:24px;
-      margin-bottom:20px;
-      color:#ff4da6;
-    }
-    .hero .cta {
-      font-family:'Allrounder',sans-serif;
-      background:#ff4da6;
-      color:#fff;
-      padding:12px 25px;
-      font-size:16px;
-      border-radius:50px;
-      transition:.3s;
-      display:inline-block;
-      margin-bottom:30px;
-    }
-    .hero .cta:hover {background:#ff66b2;}
-    .scroll-down {
-      margin-top:10px;
-      animation:bounce 1.5s infinite;
-    }
+    .hero.visible {opacity:1; transform: translateY(0);}
+    .hero img {max-width:350px;margin-bottom:20px;}
+    .hero h1 {font-family:'Allrounder',sans-serif; font-size:2.5rem; margin-bottom:20px; color:#ff4da6; letter-spacing:1px;}
+    .hero .cta {font-family:'Allrounder',sans-serif; background: linear-gradient(90deg, #ff4da6, #ff66b2); color:#fff; padding:15px 35px; font-size:18px; border-radius:50px; transition:.3s; display:inline-block; margin-bottom:30px;}
+    .hero .cta:hover {transform: scale(1.05); box-shadow: 0 0 15px #ff4da6;}
+    .scroll-down {margin-top:10px;animation:bounce 1.5s infinite;}
     .scroll-down svg {width:28px;height:28px;fill:#ff4da6;}
     @keyframes bounce {0%,100%{transform:translateY(0);}50%{transform:translateY(10px);}}
 
-    /* Media desktop */
     @media(min-width:768px){
-      .hero {min-height:100vh;padding:120px 20px 60px;justify-content:center;}
+      .hero {min-height:100vh;padding:140px 40px 60px;justify-content:center;}
       .hero img {max-width:320px;margin-bottom:25px;}
-      .hero h1 {font-size:28px;margin-bottom:25px;}
-      .hero .cta {padding:15px 35px;font-size:18px;}
+      .hero h1 {font-size:3rem;margin-bottom:25px;}
       .scroll-down {margin-top:50px;}
       .scroll-down svg {width:35px;height:35px;}
     }
 
-    /* Sections */
-    section {padding:60px 20px;text-align:center;}
-    .section-title {font-family:'Allrounder',sans-serif;font-size:26px;margin-bottom:30px;color:#ff4da6;}
+    section {
+      padding:80px 20px; text-align:center; max-width:1200px; margin:0 auto;
+      opacity:0; transform: translateY(30px); transition: all 1s ease;
+    }
+    section.visible {opacity:1; transform: translateY(0);}
+    .section-title {font-family:'Allrounder',sans-serif; font-size:2rem; margin-bottom:30px; color:#ff4da6; text-transform:uppercase; letter-spacing:2px;}
 
-    /* Tarife */
-    .tarife img {max-width:90%;border-radius:20px;box-shadow:0 0 15px #ff4da6;}
+    .tarife img {max-width:90%; border-radius:20px; box-shadow:0 0 15px #ff4da6; transition:transform 0.3s ease;}
+    .tarife img:hover {transform:scale(1.03);}
 
-    /* Carousel */
-    .carousel {position:relative;overflow:hidden;width:100%;max-width:400px;margin:0 auto;}
-    .carousel-track {display:flex;transition:transform 0.5s ease-in-out;}
-    .carousel img {width:100%;border-radius:20px;display:block;}
-    .carousel-buttons {margin-top:10px;display:flex;justify-content:center;gap:10px;}
-    .carousel-buttons button {width:12px;height:12px;border-radius:50%;border:none;background:#555;cursor:pointer;}
-    .carousel-buttons .active {background:#ff4da6;}
+    .carousel {position:relative; overflow:hidden; width:100%; max-width:400px; margin:0 auto;}
+    .carousel-track {display:flex; transition:transform 0.5s ease-in-out;}
+    .carousel img {width:100%; border-radius:20px; display:block; transition: transform 0.5s ease, opacity 0.5s ease;}
+    .carousel-buttons {margin-top:10px; display:flex; justify-content:center; gap:10px;}
+    .carousel-buttons button {width:12px; height:12px; border-radius:50%; border:none; background:#333; cursor:pointer; transition:0.3s;}
+    .carousel-buttons .active {background:#ff66b2; box-shadow:0 0 5px #ff4da6;}
 
-    /* Instagram Feed */
-    .instagram-feed iframe {width:100%;height:500px;border:none;overflow:hidden;}
+    .instagram-feed iframe {width:100%; height:500px; border:none; overflow:hidden;}
 
-    /* Despre noi */
-    .about p {max-width:600px;margin:0 auto;font-size:18px;line-height:1.5;}
+    .about p {max-width:600px;margin:0 auto;font-size:1.125rem;line-height:1.8;}
 
-    /* Review-uri */
     .reviews {max-width:600px;margin:0 auto;}
-    .review {background:#111;padding:20px;margin-bottom:20px;border-radius:15px;box-shadow:0 0 10px #222;}
-    .stars {color:#ff4da6;margin-bottom:10px;font-size:20px;}
+    .review {background:#111; padding:20px; margin-bottom:20px; border-radius:15px; box-shadow:0 0 10px #222; transition: transform 0.3s ease, box-shadow 0.3s ease;}
+    .review:hover {transform: translateY(-5px); box-shadow:0 0 20px #ff4da6;}
+    .stars {background: linear-gradient(90deg, #ffcc00, #ff4da6); -webkit-background-clip: text; color: transparent; margin-bottom:10px; font-size:20px;}
     form {max-width:600px;margin:20px auto;text-align:left;}
     form input, form textarea {width:100%;padding:10px;margin:5px 0;border-radius:10px;border:none;font-size:16px;}
-    form button {font-family:'Allrounder',sans-serif;background:#ff4da6;color:#fff;padding:10px 25px;border:none;border-radius:50px;margin-top:10px;cursor:pointer;font-size:16px;}
+    form button {font-family:'Allrounder',sans-serif;background:#ff4da6;color:#fff;padding:10px 25px;border:none;border-radius:50px;margin-top:10px;cursor:pointer;font-size:16px;transition:0.3s;}
+    form button:hover {transform: scale(1.05); box-shadow:0 0 15px #ff4da6;}
 
-    /* Star selector */
-    .star-selector {display:flex;gap:5px;font-size:28px;margin:10px 0;cursor:pointer;}
+    .star-selector {display:flex; gap:5px; font-size:28px; margin:10px 0; cursor:pointer;}
     .star-selector span:hover, .star-selector span:hover ~ span {color:#555;}
     .star-selector span.selected {color:#ff4da6;}
 
-    /* Contact */
-    .contact-links a {font-family:'Allrounder',sans-serif;display:inline-block;margin:10px;padding:10px 25px;border:2px solid #ff4da6;border-radius:50px;color:#ff4da6;transition:.3s;}
-    .contact-links a:hover {background:#ff4da6;color:#fff;}
+    .contact-links a {font-family:'Allrounder',sans-serif; display:inline-block; margin:10px; padding:10px 25px; border:2px solid #ff4da6; border-radius:50px; color:#ff4da6; transition:.3s;}
+    .contact-links a:hover {background:#ff4da6;color:#fff; transform:scale(1.05);}
 
-    /* Footer */
-    footer {padding:20px;text-align:center;background:#111;margin-top:40px;color:#aaa;}
+    footer {padding:20px;text-align:center;background:#111;margin-top:40px;color:#ff4da6;font-size:14px;letter-spacing:1px;}
 
-    /* Floating WhatsApp */
-    .whatsapp-float {position:fixed;width:60px;height:60px;bottom:20px;right:20px;background:#25d366;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:30px;z-index:100;box-shadow:0 0 10px #000;transition:.3s;}
-    .whatsapp-float:hover {background:#1ebc57;}
+    .whatsapp-float {position:fixed;width:60px;height:60px;bottom:20px;right:20px; background:#25d366;color:#fff;border-radius:50%; display:flex;align-items:center;justify-content:center;font-size:30px; z-index:100;box-shadow:0 0 10px #000;transition:.3s;}
+    .whatsapp-float:hover {background:#1ebc57; transform: scale(1.1); box-shadow:0 0 20px #25d366;}
+
+    .cta.insta {background: linear-gradient(90deg, #ff4da6, #ff66b2); padding:20px 45px; font-size:20px; border-radius:50px; transition:.3s; display:inline-block;}
+    .cta.insta:hover {transform: scale(1.05); box-shadow: 0 0 15px #ff4da6;}
   </style>
 </head>
 <body>
 
-  <!-- Header -->
-  <header>
-    <div class="menu-toggle" onclick="toggleMenu()" aria-label="Deschide meniul">
-      <span></span><span></span><span></span>
+<header>
+  <div class="menu-toggle" onclick="toggleMenu()" aria-label="Deschide meniul">
+    <span></span><span></span><span></span>
+  </div>
+  <nav id="menu">
+    <a href="#hero">Acasă</a>
+    <a href="#tarife">Tarife</a>
+    <a href="#produse">Produse</a>
+    <a href="#instagram">Instagram</a>
+    <a href="#about">Despre noi</a>
+    <a href="#reviews">Review-uri</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<section class="hero" id="hero">
+  <img src="https://i.ibb.co/7xrxqp70/Photoroom-20250918-90312-a-m.png" alt="Glampuff Logo" loading="lazy">
+  <h1>facem vibe din vape</h1>
+  <a href="https://wa.me/40749854609" target="_blank" class="cta">Comandă pe WhatsApp</a>
+  <div class="scroll-down">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 16.5l-8-8h16l-8 8z"/></svg>
+  </div>
+</section>
+
+<section class="tarife" id="tarife">
+  <h2 class="section-title">Tarife</h2>
+  <img src="https://i.ibb.co/h1XhLNGs/Black-and-Blue-Gradient-Creative-Price-List-Instagram-Story.png" alt="Tarife Glampuff" loading="lazy">
+</section>
+
+<section id="produse">
+  <h2 class="section-title">Produsele noastre</h2>
+  <div class="carousel">
+    <div class="carousel-track">
+      <img src="https://i.ibb.co/Sw5JxRq3/Photoroom-20250920-111601-a-m.png" alt="Produs 1" loading="lazy">
+      <img src="https://i.ibb.co/F4mR3JG4/Photoroom-20250919-13204-a-m.png" alt="Produs 2" loading="lazy">
+      <img src="https://i.ibb.co/FLR0JXC7/IMG-4611.jpg" alt="Produs 3" loading="lazy">
     </div>
-    <nav id="menu">
-      <a href="#hero">Acasă</a>
-      <a href="#tarife">Tarife</a>
-      <a href="#produse">Produse</a>
-      <a href="#instagram">Instagram</a>
-      <a href="#about">Despre noi</a>
-      <a href="#reviews">Review-uri</a>
-      <a href="#contact">Contact</a>
-    </nav>
-  </header>
+    <div class="carousel-buttons"></div>
+  </div>
+  <a href="https://instagram.com/glampuff45" target="_blank" class="cta insta">Vezi mai multe pe Insta</a>
+</section>
 
-  <!-- Hero -->
-  <section class="hero" id="hero">
-    <img src="https://i.ibb.co/7xrxqp70/Photoroom-20250918-90312-a-m.png" alt="Glampuff Logo" loading="lazy">
-    <h1>facem vibe din vape</h1>
-    <a href="https://wa.me/40749854609" target="_blank" class="cta">Comandă pe WhatsApp</a>
-    <div class="scroll-down">
-      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
-        <path d="M12 16.5l-8-8h16l-8 8z"/>
-      </svg>
+<section id="instagram">
+  <h2 class="section-title">Feed Instagram</h2>
+  <div class="instagram-feed">
+    <iframe onload="iFrameSetup(this)" src="https://app.mirror-app.com/feed-instagram/7184faa6-0ee9-42e1-a3d0-57ba6fdd9388/preview" scrolling="no"></iframe>
+  </div>
+</section>
+<script src="https://cdn.jsdelivr.net/npm/@mirrorapp/iframe-bridge@latest/dist/index.umd.js"></script>
+
+<section class="about" id="about">
+  <h2 class="section-title">Despre noi</h2>
+  <p>Glampuff este brandul care transformă experiența de vaping într-un statement luxury și profesional. Personalizăm fiecare dispozitiv pentru a reflecta vibe-ul tău unic. Glam, fresh și mereu premium.</p>
+</section>
+
+<section id="reviews">
+  <h2 class="section-title">Review-uri</h2>
+  <div class="reviews" id="reviewList">
+    <div class="review"><div class="stars">★★★★★</div><p>Produse excelente și design de lux!</p></div>
+    <div class="review"><div class="stars">★★★★☆</div><p>Livrare rapidă și experiență faină.</p></div>
+  </div>
+  <form id="reviewForm">
+    <input type="text" id="name" placeholder="Numele tău" required>
+    <textarea id="message" placeholder="Scrie un review..." required></textarea>
+    <div class="star-selector">
+      <span data-value="1">☆</span>
+      <span data-value="2">☆</span>
+      <span data-value="3">☆</span>
+      <span data-value="4">☆</span>
+      <span data-value="5" class="selected">★</span>
     </div>
-  </section>
+    <input type="hidden" id="rating" value="5">
+    <button type="submit">Trimite review</button>
+  </form>
+</section>
 
-  <!-- Tarife -->
-  <section class="tarife" id="tarife">
-    <h2 class="section-title">Tarife</h2>
-    <img src="https://i.ibb.co/h1XhLNGs/Black-and-Blue-Gradient-Creative-Price-List-Instagram-Story.png" alt="Tarife Glampuff" loading="lazy">
-  </section>
+<section id="contact">
+  <h2 class="section-title">Contact</h2>
+  <div class="contact-links">
+    <a href="https://instagram.com/glampuff45" target="_blank">Instagram</a>
+    <a href="https://wa.me/40749854609" target="_blank">WhatsApp</a>
+    <a href="https://tiktok.com/@glampuff.shop" target="_blank">TikTok</a>
+  </div>
+</section>
 
-  <!-- Produse -->
-  <section id="produse">
-    <h2 class="section-title">Produsele noastre</h2>
-    <div class="carousel">
-      <div class="carousel-track">
-        <img src="https://i.ibb.co/Sw5JxRq3/Photoroom-20250920-111601-a-m.png" alt="Produs 1" loading="lazy">
-        <img src="https://i.ibb.co/F4mR3JG4/Photoroom-20250919-13204-a-m.png" alt="Produs 2" loading="lazy">
-        <img src="https://i.ibb.co/FLR0JXC7/IMG-4611.jpg" alt="Produs 3" loading="lazy">
-      </div>
-      <div class="carousel-buttons"></div>
-    </div>
-    <a href="https://instagram.com/glampuff45" target="_blank" class="cta" style="margin-top:20px;">Vezi mai multe pe Insta</a>
-  </section>
+<footer>
+  <p>© 2025 Glampuff. Toate drepturile rezervate.</p>
+</footer>
 
-  <!-- Instagram Feed -->
-  <section id="instagram">
-    <h2 class="section-title">Feed Instagram</h2>
-    <div class="instagram-feed">
-      <iframe onload="iFrameSetup(this)" src="https://app.mirror-app.com/feed-instagram/7184faa6-0ee9-42e1-a3d0-57ba6fdd9388/preview" scrolling="no"></iframe>
-    </div>
-  </section>
-  <script src="https://cdn.jsdelivr.net/npm/@mirrorapp/iframe-bridge@latest/dist/index.umd.js"></script>
+<a href="https://wa.me/40749854609" class="whatsapp-float" target="_blank">💬</a>
 
-  <!-- Despre noi -->
-  <section class="about" id="about">
-    <h2 class="section-title">Despre noi</h2>
-    <p>Glampuff este brandul care transformă experiența de vaping într-un statement luxury și profesional. Personalizăm fiecare dispozitiv pentru a reflecta vibe-ul tău unic. Glam, fresh și mereu premium.</p>
-  </section>
+<script>
+function toggleMenu(){document.getElementById("menu").classList.toggle("active");}
 
-  <!-- Review-uri -->
-  <section id="reviews">
-    <h2 class="section-title">Review-uri</h2>
-    <div class="reviews" id="reviewList">
-      <div class="review"><div class="stars">★★★★★</div><p>Produse excelente și design de lux!</p></div>
-      <div class="review"><div class="stars">★★★★☆</div><p>Livrare rapidă și experiență faină.</p></div>
-    </div>
-    <form id="reviewForm">
-      <input type="text" id="name" placeholder="Numele tău" required>
-      <textarea id="message" placeholder="Scrie un review..." required></textarea>
-      <div class="star-selector">
-        <span data-value="1">☆</span>
-        <span data-value="2">☆</span>
-        <span data-value="3">☆</span>
-        <span data-value="4">☆</span>
-        <span data-value="5" class="selected">★</span>
-      </div>
-      <input type="hidden" id="rating" value="5">
-      <button type="submit">Trimite review</button>
-    </form>
-  </section>
+// Carousel
+const track=document.querySelector('.carousel-track');
+const slides=Array.from(track.children);
+const buttonsContainer=document.querySelector('.carousel-buttons');
+let currentIndex=0;
 
-  <!-- Contact -->
-  <section id="contact">
-    <h2 class="section-title">Contact</h2>
-    <div class="contact-links">
-      <a href="https://instagram.com/glampuff45" target="_blank">Instagram</a>
-      <a href="https://wa.me/40749854609" target="_blank">WhatsApp</a>
-      <a href="https://tiktok.com/@glampuff.shop" target="_blank">TikTok</a>
-    </div>
-  </section>
+slides.forEach((_,i)=>{
+  const btn=document.createElement('button');
+  if(i===0) btn.classList.add('active');
+  btn.addEventListener('click',()=>moveToSlide(i));
+  buttonsContainer.appendChild(btn);
+});
 
-  <!-- Footer -->
-  <footer>
-    <p>© 2025 Glampuff. Toate drepturile rezervate.</p>
-  </footer>
+function moveToSlide(index){
+  track.style.transform=`translateX(-${index*100}%)`;
+  buttonsContainer.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
+  buttonsContainer.children[index].classList.add('active');
+  currentIndex=index;
+}
 
-  <!-- WhatsApp Floating -->
-  <a href="https://wa.me/40749854609" class="whatsapp-float" target="_blank">💬</a>
+let carouselInterval=setInterval(()=>{
+  currentIndex=(currentIndex+1)%slides.length;
+  moveToSlide(currentIndex);
+},4000);
 
-  <!-- JS -->
-  <script>
-    // Meniu toggle
-    function toggleMenu(){document.getElementById("menu").classList.toggle("active");}
+buttonsContainer.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>clearInterval(carouselInterval)));
 
-    // Carousel
-    const track=document.querySelector('.carousel-track');
-    const slides=Array.from(track.children);
-    const buttonsContainer=document.querySelector('.carousel-buttons');
-    let currentIndex=0;
+// Star selector
+const stars=document.querySelectorAll('.star-selector span');
+const ratingInput=document.getElementById('rating');
+stars.forEach(star=>{
+  star.addEventListener('click',()=>{
+    const val=parseInt(star.dataset.value);
+    ratingInput.value=val;
+    stars.forEach(s=> s.textContent=s.dataset.value<=val?'★':'☆');
+  });
+});
 
-    slides.forEach((_,i)=>{
-      const btn=document.createElement('button');
-      if(i===0) btn.classList.add('active');
-      btn.addEventListener('click',()=>moveToSlide(i));
-      buttonsContainer.appendChild(btn);
-    });
+// Reviews form
+document.getElementById("reviewForm").addEventListener("submit",e=>{
+  e.preventDefault();
+  const name=document.getElementById("name").value;
+  const msg=document.getElementById("message").value;
+  const rating=parseInt(document.getElementById("rating").value);
+  const starsStr="★".repeat(rating)+"☆".repeat(5-rating);
+  const review=document.createElement("div");
+  review.classList.add("review");
+  review.innerHTML=`<div class="stars">${starsStr}</div><p><strong>${name}:</strong> ${msg}</p>`;
+  document.getElementById("reviewList").prepend(review);
+  e.target.reset();
+  stars.forEach(s=>s.textContent='☆');
+  ratingInput.value=5;
+});
 
-    function moveToSlide(index){
-      track.style.transform=`translateX(-${index*100}%)`;
-      buttonsContainer.querySelectorAll('button').forEach(b=>b.classList.remove('active'));
-      buttonsContainer.children[index].classList.add('active');
-      currentIndex=index;
+// Scroll animations
+const sections=document.querySelectorAll('section, .hero');
+const observer=new IntersectionObserver(entries=>{
+  entries.forEach(entry=>{
+    if(entry.isIntersecting){
+      entry.target.classList.add('visible');
     }
-
-    let carouselInterval=setInterval(()=>{
-      currentIndex=(currentIndex+1)%slides.length;
-      moveToSlide(currentIndex);
-    },4000);
-
-    buttonsContainer.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>clearInterval(carouselInterval)));
-
-    // Star selector
-    const stars=document.querySelectorAll('.star-selector span');
-    const ratingInput=document.getElementById('rating');
-    stars.forEach(star=>{
-      star.addEventListener('click',()=>{
-        const val=parseInt(star.dataset.value);
-        ratingInput.value=val;
-        stars.forEach(s=> s.textContent=s.dataset.value<=val?'★':'☆');
-      });
-    });
-
-    // Reviews form
-    document.getElementById("reviewForm").addEventListener("submit",e=>{
-      e.preventDefault();
-      const name=document.getElementById("name").value;
-      const msg=document.getElementById("message").value;
-      const rating=parseInt(document.getElementById("rating").value);
-      const starsStr="★".repeat(rating)+"☆".repeat(5-rating);
-      const review=document.createElement("div");
-      review.classList.add("review");
-      review.innerHTML=`<div class="stars">${starsStr}</div><p><strong>${name}:</strong> ${msg}</p>`;
-      document.getElementById("reviewList").prepend(review);
-      e.target.reset();
-      stars.forEach(s=>s.textContent='☆');
-      ratingInput.value=5;
-    });
-  </script>
+  });
+},{threshold:0.2});
+sections.forEach(sec=>observer.observe(sec));
+</script>
 </body>
 </html>
