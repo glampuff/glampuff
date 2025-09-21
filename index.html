@@ -3,16 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="GlamPuff - Vape personalizate cu stil și vibe unic">
   <title>GlamPuff</title>
   <link rel="stylesheet" href="style.css">
-
-  <!-- FontAwesome pentru iconițe -->
-  <script src="https://kit.fontawesome.com/2b4c8e1d3d.js" crossorigin="anonymous"></script>
-
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <style>
     html { scroll-behavior: smooth; }
 
+    /* Font Allrounder doar pentru titluri */
     @font-face {
       font-family: 'Allrounder Monument';
       src: url('AllrounderMonumentTest-Medium.woff2') format('woff2'),
@@ -27,52 +24,50 @@
 
   <!-- NAVBAR -->
   <nav class="navbar">
-    <a href="#" class="nav-logo">GlamPuff</a>
+    <a href="#" class="nav-logo allrounder">GlamPuff</a>
     <ul class="nav-links">
       <li><a href="#tarife">Tarife</a></li>
       <li><a href="#produse">Produse</a></li>
-      <li><a href="#reviews">Review-uri</a></li>
+      <li><a href="#despre">Despre</a></li>
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
 
   <!-- HERO -->
   <section class="hero">
-    <img src="https://i.ibb.co/7xrxqp70/Photoroom-20250918-90312-a-m.png" 
-         alt="GlamPuff Logo" 
-         class="logo animate">
-
-    <div class="hero-center animate">
-      <h1 class="allrounder">Facem vibe din vape</h1>
-      <a href="https://wa.me/40749854609" class="btn big-btn" target="_blank">
-        <i class="fab fa-whatsapp"></i> Comandă pe WhatsApp
-      </a>
-      <div class="scroll-indicator animate"><span>&#x25BC;</span></div>
-    </div>
+    <img src="https://i.ibb.co/7xrxqp70/Photoroom-20250918-90312-a-m.png" alt="GlamPuff Logo" class="logo animate">
+    <h1 class="allrounder animate">Facem vibe din vape</h1>
+    <a href="https://wa.me/40749854609" class="btn animate" target="_blank">Comandă pe WhatsApp</a>
+    <div class="scroll-indicator animate"><span>&#x25BC;</span></div>
   </section>
 
   <!-- TARIFE -->
   <section id="tarife" class="tarife animate">
     <h2 class="allrounder">Tarife</h2>
-    <img src="https://i.ibb.co/h1XhLNGs/Black-and-Blue-Gradient-Creative-Price-List-Instagram-Story.png" 
-         alt="Lista de prețuri GlamPuff" class="tarife-img">
+    <img src="https://i.ibb.co/h1XhLNGs/Black-and-Blue-Gradient-Creative-Price-List-Instagram-Story.png" alt="Lista tarife GlamPuff">
   </section>
 
-  <!-- PRODUSE SLIDER -->
+  <!-- PRODUSE -->
   <section id="produse" class="produse animate">
     <h2 class="allrounder">Produsele noastre</h2>
     <div class="slider">
       <div class="slides">
-        <div class="slide"><img src="https://i.ibb.co/Sw5JxRq3/Photoroom-20250920-111601-a-m.png" alt="Vape Model 1"></div>
-        <div class="slide"><img src="https://i.ibb.co/F4mR3JG4/Photoroom-20250919-13204-a-m.png" alt="Vape Model 2"></div>
-        <div class="slide"><img src="https://i.ibb.co/FLR0JXC7/IMG-4611.jpg" alt="Vape Model 3"></div>
+        <div class="slide">
+          <img src="https://i.ibb.co/Sw5JxRq3/Photoroom-20250920-111601-a-m.png" alt="Produs 1">
+        </div>
+        <div class="slide">
+          <img src="https://i.ibb.co/F4mR3JG4/Photoroom-20250919-13204-a-m.png" alt="Produs 2">
+        </div>
+        <div class="slide">
+          <img src="https://i.ibb.co/FLR0JXC7/IMG-4611.jpg" alt="Produs 3">
+        </div>
       </div>
     </div>
     <a href="https://instagram.com/glampuff45" class="btn instagram-btn" target="_blank">Vezi mai multe pe Instagram</a>
   </section>
 
   <!-- DESPRE -->
-  <section class="despre animate">
+  <section id="despre" class="despre animate">
     <h2 class="allrounder">Despre GlamPuff</h2>
     <p>
       GlamPuff aduce stil și personalitate în lumea vapingului. 
@@ -80,29 +75,18 @@
     </p>
   </section>
 
-  <!-- REVIEW-URI -->
-  <section id="reviews" class="reviews animate">
+  <!-- REVIEW -->
+  <section class="review animate">
     <h2 class="allrounder">Lasă un review</h2>
-    <form id="reviewForm">
-      <input type="text" id="name" placeholder="Numele tău" required>
-      <textarea id="message" placeholder="Scrie review-ul aici..." required></textarea>
-      <div class="rating">
-        <span data-star="5">★</span>
-        <span data-star="4">★</span>
-        <span data-star="3">★</span>
-        <span data-star="2">★</span>
-        <span data-star="1">★</span>
-      </div>
+    <form class="review-form">
+      <input type="text" placeholder="Numele tău" required>
+      <textarea placeholder="Scrie aici review-ul tău..." required></textarea>
       <button type="submit" class="btn">Trimite Review</button>
     </form>
-    <div id="reviewsList" class="reviews-list"></div>
-  </section>
-
-  <!-- INSTAGRAM FEED -->
-  <section class="instagram-feed animate">
-    <h2 class="allrounder">Ultimele postări Instagram</h2>
-    <blockquote class="instagram-media" data-instgrm-permalink="https://www.instagram.com/glampuff45/" data-instgrm-version="14"></blockquote>
-    <script async src="//www.instagram.com/embed.js"></script>
+    <div class="reviews-list">
+      <p><strong>Ana:</strong> Super produse! 💖</p>
+      <p><strong>Andrei:</strong> Vape-ul meu arată genial, recomand!</p>
+    </div>
   </section>
 
   <!-- CONTACT -->
@@ -110,9 +94,9 @@
     <h2 class="allrounder">Contact</h2>
     <p>Hai să discutăm despre modelul tău personalizat!</p>
     <div class="contact-links">
-      <a href="https://wa.me/40749854609" class="btn" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
-      <a href="https://instagram.com/glampuff45" class="btn" target="_blank"><i class="fab fa-instagram"></i> Instagram</a>
-      <a href="https://www.tiktok.com/@glampuff.shop" class="btn" target="_blank"><i class="fab fa-tiktok"></i> TikTok</a>
+      <a href="https://wa.me/40749854609" class="btn" target="_blank">WhatsApp</a>
+      <a href="https://instagram.com/glampuff45" class="btn" target="_blank">Instagram</a>
+      <a href="https://www.tiktok.com/@glampuff.shop" class="btn" target="_blank">TikTok</a>
     </div>
   </section>
 
@@ -121,14 +105,13 @@
     <p>© 2025 GlamPuff - Toate drepturile rezervate</p>
   </footer>
 
-  <!-- BUTON WHATSAPP PLUTITOR -->
+  <!-- WhatsApp Floating Button -->
   <a href="https://wa.me/40749854609" class="whatsapp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
   </a>
 
-  <!-- Scroll Animation + Reviews JS -->
+  <!-- Scroll Animation JS -->
   <script>
-    // Scroll Animation
     const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
         if(entry.isIntersecting){
@@ -138,47 +121,7 @@
     }, { threshold: 0.2 });
 
     document.querySelectorAll('.animate').forEach(el => observer.observe(el));
-
-    // Reviews with stars
-    let selectedStars = 0;
-    const stars = document.querySelectorAll('.rating span');
-    stars.forEach(star => {
-      star.addEventListener('click', () => {
-        selectedStars = star.getAttribute('data-star');
-        stars.forEach(s => s.classList.remove('active'));
-        star.classList.add('active');
-      });
-    });
-
-    const form = document.getElementById("reviewForm");
-    const reviewsList = document.getElementById("reviewsList");
-
-    function loadReviews() {
-      const reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
-      reviewsList.innerHTML = reviews.map(r => `
-        <div class="review">
-          <h4>${r.name} - ${"★".repeat(r.stars)}</h4>
-          <p>${r.message}</p>
-        </div>
-      `).join("");
-    }
-
-    form.addEventListener("submit", (e) => {
-      e.preventDefault();
-      const name = document.getElementById("name").value;
-      const message = document.getElementById("message").value;
-
-      const reviews = JSON.parse(localStorage.getItem("reviews") || "[]");
-      reviews.push({ name, message, stars: selectedStars });
-      localStorage.setItem("reviews", JSON.stringify(reviews));
-
-      form.reset();
-      loadReviews();
-    });
-
-    loadReviews();
   </script>
 
 </body>
 </html>
-
