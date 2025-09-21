@@ -5,6 +5,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Glampuff</title>
   <style>
+    /* Font */
+    @font-face {
+      font-family: 'Allrounder';
+      src: url('AllrounderMonumentTest-Medium.otf') format('opentype');
+    }
+
     /* Reset */
     * {margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
     body {background:#000;color:#fff;overflow-x:hidden;}
@@ -12,7 +18,6 @@
 
     /* Header */
     header {position:fixed;top:0;left:0;width:100%;padding:15px;display:flex;justify-content:space-between;align-items:center;z-index:100;background:rgba(0,0,0,0.7);}
-    .logo {max-height:50px;}
     .menu-toggle {cursor:pointer;display:flex;flex-direction:column;gap:5px;}
     .menu-toggle span {width:25px;height:3px;background:#ff4da6;border-radius:2px;transition:.3s;}
     nav {position:fixed;top:0;right:-100%;width:70%;height:100%;background:#111;transition:.4s;padding:60px 20px;display:flex;flex-direction:column;gap:20px;}
@@ -20,17 +25,18 @@
     nav a {font-size:18px;color:#ff4da6;}
 
     /* Hero */
-    .hero {min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:80px 20px;}
-    .hero img {max-width:250px;margin-bottom:20px;}
-    .hero h1 {font-size:22px;margin-bottom:20px;color:#ff4da6;}
-    .hero .cta {background:#ff4da6;color:#fff;padding:15px 30px;font-size:20px;border-radius:30px;transition:.3s;}
-    .hero .cta:hover {background:#ff66b2;}
-    .scroll-down {margin-top:40px;font-size:30px;color:#ff4da6;animation:bounce 2s infinite;}
+    .hero {min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 20px 60px;}
+    .hero img {max-width:320px;margin-bottom:25px;}
+    .hero h1 {font-family:'Allrounder',sans-serif;font-size:26px;margin-bottom:25px;color:#ff4da6;}
+    .cta {font-family:'Allrounder',sans-serif;background:#ff4da6;color:#fff;padding:15px 35px;font-size:18px;border-radius:50px;transition:.3s;display:inline-block;}
+    .cta:hover {background:#ff66b2;}
+    .scroll-down {margin-top:50px;animation:bounce 2s infinite;}
+    .scroll-down svg {width:35px;height:35px;fill:#ff4da6;}
     @keyframes bounce {0%,100%{transform:translateY(0);}50%{transform:translateY(10px);}}
 
     /* Sections */
     section {padding:60px 20px;text-align:center;}
-    .section-title {font-size:26px;margin-bottom:30px;color:#ff4da6;}
+    .section-title {font-family:'Allrounder',sans-serif;font-size:26px;margin-bottom:30px;color:#ff4da6;}
 
     /* Tarife */
     .tarife img {max-width:90%;border-radius:20px;box-shadow:0 0 15px #ff4da6;}
@@ -54,10 +60,11 @@
     .review {background:#111;padding:20px;margin-bottom:20px;border-radius:15px;box-shadow:0 0 10px #222;}
     .stars {color:#ff4da6;margin-bottom:10px;}
     form textarea, form input {width:100%;padding:10px;margin:5px 0;border-radius:10px;border:none;}
-    form button {background:#ff4da6;color:#fff;padding:10px 20px;border:none;border-radius:20px;margin-top:10px;cursor:pointer;}
+    form button {font-family:'Allrounder',sans-serif;background:#ff4da6;color:#fff;padding:10px 25px;border:none;border-radius:50px;margin-top:10px;cursor:pointer;}
 
     /* Contact */
-    .contact-links a {display:inline-block;margin:10px;font-size:20px;color:#ff4da6;}
+    .contact-links a {font-family:'Allrounder',sans-serif;display:inline-block;margin:10px;padding:10px 25px;border:2px solid #ff4da6;border-radius:50px;color:#ff4da6;transition:.3s;}
+    .contact-links a:hover {background:#ff4da6;color:#fff;}
 
     /* Footer */
     footer {padding:20px;text-align:center;background:#111;margin-top:40px;color:#aaa;}
@@ -90,7 +97,11 @@
     <img src="https://i.ibb.co/7xrxqp70/Photoroom-20250918-90312-a-m.png" alt="Glampuff Logo">
     <h1>facem vibe din vape</h1>
     <a href="https://wa.me/40749854609" target="_blank" class="cta">Comandă pe WhatsApp</a>
-    <div class="scroll-down">⬇</div>
+    <div class="scroll-down">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+        <path d="M12 16.5l-8-8h16l-8 8z"/>
+      </svg>
+    </div>
   </section>
 
   <!-- Tarife -->
@@ -110,14 +121,14 @@
       </div>
     </div>
     <div class="carousel-buttons"></div>
-    <a href="https://instagram.com/glampuff45" target="_blank" class="cta" style="margin-top:20px;display:inline-block;">Vezi mai multe pe Insta</a>
+    <a href="https://instagram.com/glampuff45" target="_blank" class="cta" style="margin-top:20px;">Vezi mai multe pe Insta</a>
   </section>
 
   <!-- Instagram Feed -->
   <section id="instagram">
     <h2 class="section-title">Feed Instagram</h2>
     <div class="instagram-feed">
-      <iframe onload="iFrameSetup(this)" src="https://app.mirror-app.com/feed-instagram/7184faa6-0ee9-42e1-a3d0-57ba6fdd9388/preview" scrolling="no"></iframe>
+      <iframe onload="iFrameSetup(this)" src="https://app.mirror-app.com/feed-instagram/7184faa6-0ee9-42e1-a3d0-57ba6fdd9388/preview" style="width:100%;border:none;overflow:hidden;" scrolling="no"></iframe>
     </div>
   </section>
   <script src="https://cdn.jsdelivr.net/npm/@mirrorapp/iframe-bridge@latest/dist/index.umd.js"></script>
