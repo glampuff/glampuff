@@ -4,8 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Glampuff</title>
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
   <style>
-    /* Font */
+    /* Font personalizat */
     @font-face {
       font-family: 'Allrounder';
       src: url('AllrounderMonumentTest-Medium.otf') format('opentype');
@@ -27,7 +30,7 @@
     /* Hero */
     .hero {min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 20px 60px;}
     .hero img {max-width:320px;margin-bottom:25px;}
-    .hero h1 {font-family:'Allrounder',sans-serif;font-size:26px;margin-bottom:25px;color:#ff4da6;}
+    .hero h1 {font-family:'Allrounder',sans-serif;font-size:28px;margin-bottom:25px;color:#ff4da6;}
     .cta {font-family:'Allrounder',sans-serif;background:#ff4da6;color:#fff;padding:15px 35px;font-size:18px;border-radius:50px;transition:.3s;display:inline-block;}
     .cta:hover {background:#ff66b2;}
     .scroll-down {margin-top:50px;animation:bounce 2s infinite;}
@@ -44,23 +47,29 @@
     /* Carousel */
     .carousel {position:relative;overflow:hidden;width:100%;max-width:400px;margin:0 auto;}
     .carousel-track {display:flex;transition:transform 0.5s ease-in-out;}
-    .carousel img {width:100%;border-radius:20px;}
+    .carousel img {width:100%;border-radius:20px;display:block;}
     .carousel-buttons {margin-top:10px;display:flex;justify-content:center;gap:10px;}
     .carousel-buttons button {width:12px;height:12px;border-radius:50%;border:none;background:#555;cursor:pointer;}
     .carousel-buttons .active {background:#ff4da6;}
 
     /* Instagram Feed */
-    .instagram-feed iframe {width:100%;height:500px;border:none;}
+    .instagram-feed iframe {width:100%;height:500px;border:none;overflow:hidden;}
 
     /* Despre noi */
     .about p {max-width:600px;margin:0 auto;font-size:18px;line-height:1.5;}
 
-    /* Review */
+    /* Review-uri */
     .reviews {max-width:600px;margin:0 auto;}
     .review {background:#111;padding:20px;margin-bottom:20px;border-radius:15px;box-shadow:0 0 10px #222;}
-    .stars {color:#ff4da6;margin-bottom:10px;}
-    form textarea, form input {width:100%;padding:10px;margin:5px 0;border-radius:10px;border:none;}
-    form button {font-family:'Allrounder',sans-serif;background:#ff4da6;color:#fff;padding:10px 25px;border:none;border-radius:50px;margin-top:10px;cursor:pointer;}
+    .stars {color:#ff4da6;margin-bottom:10px;font-size:20px;}
+    form {max-width:600px;margin:20px auto;text-align:left;}
+    form input, form textarea {width:100%;padding:10px;margin:5px 0;border-radius:10px;border:none;font-size:16px;}
+    form button {font-family:'Allrounder',sans-serif;background:#ff4da6;color:#fff;padding:10px 25px;border:none;border-radius:50px;margin-top:10px;cursor:pointer;font-size:16px;}
+    
+    /* Star selector */
+    .star-selector {display:flex;gap:5px;font-size:28px;margin:10px 0;cursor:pointer;}
+    .star-selector span:hover, .star-selector span:hover ~ span {color:#555;}
+    .star-selector span.selected {color:#ff4da6;}
 
     /* Contact */
     .contact-links a {font-family:'Allrounder',sans-serif;display:inline-block;margin:10px;padding:10px 25px;border:2px solid #ff4da6;border-radius:50px;color:#ff4da6;transition:.3s;}
@@ -78,7 +87,7 @@
 
   <!-- Header -->
   <header>
-    <div class="menu-toggle" onclick="toggleMenu()">
+    <div class="menu-toggle" onclick="toggleMenu()" aria-label="Deschide meniul">
       <span></span><span></span><span></span>
     </div>
     <nav id="menu">
@@ -94,7 +103,7 @@
 
   <!-- Hero -->
   <section class="hero" id="hero">
-    <img src="https://i.ibb.co/7xrxqp70/Photoroom-20250918-90312-a-m.png" alt="Glampuff Logo">
+    <img src="https://i.ibb.co/7xrxqp70/Photoroom-20250918-90312-a-m.png" alt="Glampuff Logo" loading="lazy">
     <h1>facem vibe din vape</h1>
     <a href="https://wa.me/40749854609" target="_blank" class="cta">Comandă pe WhatsApp</a>
     <div class="scroll-down">
@@ -107,7 +116,7 @@
   <!-- Tarife -->
   <section class="tarife" id="tarife">
     <h2 class="section-title">Tarife</h2>
-    <img src="https://i.ibb.co/h1XhLNGs/Black-and-Blue-Gradient-Creative-Price-List-Instagram-Story.png" alt="Tarife Glampuff">
+    <img src="https://i.ibb.co/h1XhLNGs/Black-and-Blue-Gradient-Creative-Price-List-Instagram-Story.png" alt="Tarife Glampuff" loading="lazy">
   </section>
 
   <!-- Produse -->
@@ -115,12 +124,12 @@
     <h2 class="section-title">Produsele noastre</h2>
     <div class="carousel">
       <div class="carousel-track">
-        <img src="https://i.ibb.co/Sw5JxRq3/Photoroom-20250920-111601-a-m.png" alt="Produs 1">
-        <img src="https://i.ibb.co/F4mR3JG4/Photoroom-20250919-13204-a-m.png" alt="Produs 2">
-        <img src="https://i.ibb.co/FLR0JXC7/IMG-4611.jpg" alt="Produs 3">
+        <img src="https://i.ibb.co/Sw5JxRq3/Photoroom-20250920-111601-a-m.png" alt="Produs 1" loading="lazy">
+        <img src="https://i.ibb.co/F4mR3JG4/Photoroom-20250919-13204-a-m.png" alt="Produs 2" loading="lazy">
+        <img src="https://i.ibb.co/FLR0JXC7/IMG-4611.jpg" alt="Produs 3" loading="lazy">
       </div>
+      <div class="carousel-buttons"></div>
     </div>
-    <div class="carousel-buttons"></div>
     <a href="https://instagram.com/glampuff45" target="_blank" class="cta" style="margin-top:20px;">Vezi mai multe pe Insta</a>
   </section>
 
@@ -128,7 +137,7 @@
   <section id="instagram">
     <h2 class="section-title">Feed Instagram</h2>
     <div class="instagram-feed">
-      <iframe onload="iFrameSetup(this)" src="https://app.mirror-app.com/feed-instagram/7184faa6-0ee9-42e1-a3d0-57ba6fdd9388/preview" style="width:100%;border:none;overflow:hidden;" scrolling="no"></iframe>
+      <iframe onload="iFrameSetup(this)" src="https://app.mirror-app.com/feed-instagram/7184faa6-0ee9-42e1-a3d0-57ba6fdd9388/preview" scrolling="no"></iframe>
     </div>
   </section>
   <script src="https://cdn.jsdelivr.net/npm/@mirrorapp/iframe-bridge@latest/dist/index.umd.js"></script>
@@ -145,12 +154,18 @@
     <div class="reviews" id="reviewList">
       <div class="review"><div class="stars">★★★★★</div><p>Produse excelente și design de lux!</p></div>
       <div class="review"><div class="stars">★★★★☆</div><p>Livrare rapidă și experiență faină.</p></div>
-      <div class="review"><div class="stars">★★★★★</div><p>Cel mai cool vibe, recomand!</p></div>
     </div>
     <form id="reviewForm">
       <input type="text" id="name" placeholder="Numele tău" required>
       <textarea id="message" placeholder="Scrie un review..." required></textarea>
-      <input type="number" id="rating" placeholder="Rating (1-5)" min="1" max="5" required>
+      <div class="star-selector">
+        <span data-value="1">☆</span>
+        <span data-value="2">☆</span>
+        <span data-value="3">☆</span>
+        <span data-value="4">☆</span>
+        <span data-value="5" class="selected">★</span>
+      </div>
+      <input type="hidden" id="rating" value="5">
       <button type="submit">Trimite review</button>
     </form>
   </section>
@@ -200,23 +215,40 @@
       currentIndex=index;
     }
 
-    setInterval(()=>{
+    let carouselInterval = setInterval(()=>{
       currentIndex=(currentIndex+1)%slides.length;
       moveToSlide(currentIndex);
     },4000);
+
+    buttonsContainer.querySelectorAll('button').forEach(btn=>{
+      btn.addEventListener('click',()=>clearInterval(carouselInterval));
+    });
+
+    // Star selector
+    const stars = document.querySelectorAll('.star-selector span');
+    const ratingInput = document.getElementById('rating');
+    stars.forEach(star=>{
+      star.addEventListener('click', ()=>{
+        const val = parseInt(star.dataset.value);
+        ratingInput.value = val;
+        stars.forEach(s=> s.textContent = s.dataset.value <= val ? '★' : '☆');
+      });
+    });
 
     // Reviews
     document.getElementById("reviewForm").addEventListener("submit",e=>{
       e.preventDefault();
       const name=document.getElementById("name").value;
       const msg=document.getElementById("message").value;
-      const rating=document.getElementById("rating").value;
-      const stars="★".repeat(rating)+"☆".repeat(5-rating);
+      const rating=parseInt(document.getElementById("rating").value);
+      const starsStr="★".repeat(rating)+"☆".repeat(5-rating);
       const review=document.createElement("div");
       review.classList.add("review");
-      review.innerHTML=`<div class="stars">${stars}</div><p><strong>${name}:</strong> ${msg}</p>`;
+      review.innerHTML=`<div class="stars">${starsStr}</div><p><strong>${name}:</strong> ${msg}</p>`;
       document.getElementById("reviewList").prepend(review);
       e.target.reset();
+      stars.forEach(s=>s.textContent='☆');
+      ratingInput.value=5;
     });
   </script>
 </body>
