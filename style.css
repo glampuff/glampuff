@@ -54,6 +54,17 @@ body {
 
 /* Mobile */
 @media (max-width: 768px) {
+  .hamburger {
+    display: block;
+    position: absolute; /* devine independent în navbar */
+    left: 15px;        /* distanta fata de marginea stanga a ecranului */
+    top: 15px;         /* ajustează vertical daca vrei */
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    z-index: 1100;     /* sa fie deasupra altor elemente */
+  }
+
   .nav-links {
     display: none;
     position: fixed;
@@ -64,18 +75,13 @@ body {
     width: 200px;
     padding: 20px;
     gap: 15px;
-    border-left: 2px solid #ff69b4;
     height: calc(100% - 60px);
+    border-left: 2px solid #ff69b4;
   }
 
-  .nav-links.show {
-    display: flex;
-  }
-
-  .hamburger {
-    display: block;
-  }
+  .nav-links.show { display: flex; }
 }
+
 
 
 /* HERO */
