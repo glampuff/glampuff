@@ -27,15 +27,33 @@
     nav.active {right:0;}
     nav a {font-size:18px;color:#ff4da6;}
 
-    /* Hero */
-    .hero {min-height:100vh;display:flex;flex-direction:column;justify-content:center;align-items:center;text-align:center;padding:120px 20px 60px;}
-    .hero img {max-width:320px;margin-bottom:25px;}
-    .hero h1 {font-family:'Allrounder',sans-serif;font-size:28px;margin-bottom:25px;color:#ff4da6;}
-    .cta {font-family:'Allrounder',sans-serif;background:#ff4da6;color:#fff;padding:15px 35px;font-size:18px;border-radius:50px;transition:.3s;display:inline-block;}
-    .cta:hover {background:#ff66b2;}
-    .scroll-down {margin-top:50px;animation:bounce 2s infinite;}
-    .scroll-down svg {width:35px;height:35px;fill:#ff4da6;}
-    @keyframes bounce {0%,100%{transform:translateY(0);}50%{transform:translateY(10px);}}
+    /* Hero optimizat mobil */
+    .hero {
+      min-height:80vh;
+      padding:60px 20px 40px;
+      display:flex;
+      flex-direction:column;
+      justify-content:flex-start;
+      align-items:center;
+      text-align:center;
+    }
+    .hero img {max-width:200px;margin-bottom:15px;}
+    .hero h1 {font-family:'Allrounder',sans-serif;font-size:22px;margin-bottom:20px;color:#ff4da6;}
+    .hero .cta {font-family:'Allrounder',sans-serif;background:#ff4da6;color:#fff;padding:12px 25px;font-size:16px;border-radius:50px;transition:.3s;display:inline-block;}
+    .hero .cta:hover {background:#ff66b2;}
+    .scroll-down {margin-top:30px;animation:bounce 1.5s infinite;}
+    .scroll-down svg {width:28px;height:28px;fill:#ff4da6;}
+    @keyframes bounce {0%,100%{transform:translateY(0);}50%{transform:translateY:10px;}}
+
+    /* Media desktop */
+    @media(min-width:768px){
+      .hero {min-height:100vh;padding:120px 20px 60px;justify-content:center;}
+      .hero img {max-width:320px;margin-bottom:25px;}
+      .hero h1 {font-size:28px;margin-bottom:25px;}
+      .hero .cta {padding:15px 35px;font-size:18px;}
+      .scroll-down {margin-top:50px;}
+      .scroll-down svg {width:35px;height:35px;}
+    }
 
     /* Sections */
     section {padding:60px 20px;text-align:center;}
@@ -65,7 +83,7 @@
     form {max-width:600px;margin:20px auto;text-align:left;}
     form input, form textarea {width:100%;padding:10px;margin:5px 0;border-radius:10px;border:none;font-size:16px;}
     form button {font-family:'Allrounder',sans-serif;background:#ff4da6;color:#fff;padding:10px 25px;border:none;border-radius:50px;margin-top:10px;cursor:pointer;font-size:16px;}
-    
+
     /* Star selector */
     .star-selector {display:flex;gap:5px;font-size:28px;margin:10px 0;cursor:pointer;}
     .star-selector span:hover, .star-selector span:hover ~ span {color:#555;}
@@ -190,16 +208,14 @@
 
   <!-- JS -->
   <script>
-    // Meniu
-    function toggleMenu(){
-      document.getElementById("menu").classList.toggle("active");
-    }
+    // Meniu toggle
+    function toggleMenu(){document.getElementById("menu").classList.toggle("active");}
 
     // Carousel
-    const track = document.querySelector('.carousel-track');
-    const slides = Array.from(track.children);
-    const buttonsContainer = document.querySelector('.carousel-buttons');
-    let currentIndex = 0;
+    const track=document.querySelector('.carousel-track');
+    const slides=Array.from(track.children);
+    const buttonsContainer=document.querySelector('.carousel-buttons');
+    let currentIndex=0;
 
     slides.forEach((_,i)=>{
       const btn=document.createElement('button');
@@ -215,27 +231,25 @@
       currentIndex=index;
     }
 
-    let carouselInterval = setInterval(()=>{
+    let carouselInterval=setInterval(()=>{
       currentIndex=(currentIndex+1)%slides.length;
       moveToSlide(currentIndex);
     },4000);
 
-    buttonsContainer.querySelectorAll('button').forEach(btn=>{
-      btn.addEventListener('click',()=>clearInterval(carouselInterval));
-    });
+    buttonsContainer.querySelectorAll('button').forEach(btn=>btn.addEventListener('click',()=>clearInterval(carouselInterval)));
 
     // Star selector
-    const stars = document.querySelectorAll('.star-selector span');
-    const ratingInput = document.getElementById('rating');
+    const stars=document.querySelectorAll('.star-selector span');
+    const ratingInput=document.getElementById('rating');
     stars.forEach(star=>{
-      star.addEventListener('click', ()=>{
-        const val = parseInt(star.dataset.value);
-        ratingInput.value = val;
-        stars.forEach(s=> s.textContent = s.dataset.value <= val ? '★' : '☆');
+      star.addEventListener('click',()=>{
+        const val=parseInt(star.dataset.value);
+        ratingInput.value=val;
+        stars.forEach(s=> s.textContent=s.dataset.value<=val?'★':'☆');
       });
     });
 
-    // Reviews
+    // Reviews form
     document.getElementById("reviewForm").addEventListener("submit",e=>{
       e.preventDefault();
       const name=document.getElementById("name").value;
