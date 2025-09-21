@@ -30,20 +30,41 @@
     /* Hero optimizat mobil */
     .hero {
       min-height:80vh;
-      padding:60px 20px 40px;
+      padding:40px 20px 50px;
       display:flex;
       flex-direction:column;
       justify-content:flex-start;
       align-items:center;
       text-align:center;
     }
-    .hero img {max-width:200px;margin-bottom:15px;}
-    .hero h1 {font-family:'Allrounder',sans-serif;font-size:22px;margin-bottom:20px;color:#ff4da6;}
-    .hero .cta {font-family:'Allrounder',sans-serif;background:#ff4da6;color:#fff;padding:12px 25px;font-size:16px;border-radius:50px;transition:.3s;display:inline-block;}
+    .hero img {
+      max-width:250px;
+      margin-bottom:20px;
+    }
+    .hero h1 {
+      font-family:'Allrounder',sans-serif;
+      font-size:24px;
+      margin-bottom:20px;
+      color:#ff4da6;
+    }
+    .hero .cta {
+      font-family:'Allrounder',sans-serif;
+      background:#ff4da6;
+      color:#fff;
+      padding:12px 25px;
+      font-size:16px;
+      border-radius:50px;
+      transition:.3s;
+      display:inline-block;
+      margin-bottom:30px;
+    }
     .hero .cta:hover {background:#ff66b2;}
-    .scroll-down {margin-top:30px;animation:bounce 1.5s infinite;}
+    .scroll-down {
+      margin-top:10px;
+      animation:bounce 1.5s infinite;
+    }
     .scroll-down svg {width:28px;height:28px;fill:#ff4da6;}
-    @keyframes bounce {0%,100%{transform:translateY(0);}50%{transform:translateY:10px;}}
+    @keyframes bounce {0%,100%{transform:translateY(0);}50%{transform:translateY(10px);}}
 
     /* Media desktop */
     @media(min-width:768px){
